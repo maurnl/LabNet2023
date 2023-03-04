@@ -31,7 +31,7 @@
             this.btnAvanzar = new System.Windows.Forms.Button();
             this.btnCrear = new System.Windows.Forms.Button();
             this.btnDetener = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.dgvTransportes = new System.Windows.Forms.DataGridView();
             this.lblPlaceholder = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransportes)).BeginInit();
@@ -67,14 +67,15 @@
             this.btnDetener.UseVisualStyleBackColor = true;
             this.btnDetener.Click += new System.EventHandler(this.btnDetener_Click);
             // 
-            // label1
+            // lblTitulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(205, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "label1";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
+            this.lblTitulo.Location = new System.Drawing.Point(115, 9);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(226, 26);
+            this.lblTitulo.TabIndex = 5;
+            this.lblTitulo.Text = "Listado de transportes";
             // 
             // dgvTransportes
             // 
@@ -101,7 +102,7 @@
             this.ClientSize = new System.Drawing.Size(450, 549);
             this.Controls.Add(this.lblPlaceholder);
             this.Controls.Add(this.dgvTransportes);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnDetener);
             this.Controls.Add(this.btnCrear);
             this.Controls.Add(this.btnAvanzar);
@@ -118,7 +119,7 @@
         private System.Windows.Forms.Button btnAvanzar;
         private System.Windows.Forms.Button btnCrear;
         private System.Windows.Forms.Button btnDetener;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.DataGridView dgvTransportes;
         private System.Windows.Forms.Label lblPlaceholder;
     }

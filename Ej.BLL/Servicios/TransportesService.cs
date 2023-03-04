@@ -22,6 +22,10 @@ namespace Ej.BLL.Servicios
 
         public void CrearTransporte(TransporteCrearDto transporte)
         {
+            if(_transportesRepo.ObtenerTodos().Count >= 10)
+            {
+                throw new FlotaLlenaException("No hay mas espacio para transportes! (MAX. 10)");
+            }
             var transporteMapeado = new TransportesFactory().CrearTransporte(transporte.Tipo, transporte.CantidadPasajeros);
             _transportesRepo.Agregar(transporteMapeado);
         }

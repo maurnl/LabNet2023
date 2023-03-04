@@ -1,4 +1,5 @@
 ﻿using Ej.BLL.Dtos;
+using Ej.BLL.Servicios;
 using Ej.DAL.Services.Abstractions;
 using System;
 using System.Collections.Generic;
@@ -33,7 +34,11 @@ namespace Ej.PLL.Forms
 
         private void btnAvanzar_Click(object sender, EventArgs e)
         {
-            var transporteSeleccionado = (TransporteLecturaDto) dgvTransportes.SelectedRows[0].DataBoundItem;
+            if(dgvTransportes.SelectedRows.Count == 0)
+            {
+                return;
+            }
+            var transporteSeleccionado = (TransporteLecturaDto)dgvTransportes.SelectedRows[0].DataBoundItem;
             if (transporteSeleccionado == null)
             {
                 return;
@@ -47,7 +52,13 @@ namespace Ej.PLL.Forms
             var formDialogo = new FrmNuevoTransporte();
             if(formDialogo.ShowDialog() == DialogResult.OK)
             {
-                _transportesService.CrearTransporte(formDialogo.NuevoTransporte);
+                try
+                {
+                    _transportesService.CrearTransporte(formDialogo.NuevoTransporte);
+                }catch(FlotaLlenaException ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
                 btnAvanzar.Enabled = true;
                 btnDetener.Enabled = true;
                 ActualizarListado();

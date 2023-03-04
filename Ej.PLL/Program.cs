@@ -20,7 +20,8 @@ namespace Ej.PLL
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var repo = new RepoTransportesEnMemoria();
-            var formPrincipal = new FrmPrincipal(new TransportesService(repo));
+            var servicio = new TransportesService(repo);
+            var formPrincipal = new FrmPrincipal(servicio);
             Application.Run(formPrincipal);
         }
     }
