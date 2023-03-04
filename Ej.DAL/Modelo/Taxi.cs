@@ -14,12 +14,12 @@ namespace Ej.DAL.Model
 
         public override string Avanzar()
         {
-            throw new NotImplementedException();
+            return $"Apagando luz de disponible y arrancando...";
         }
 
         public override string Deneterse()
         {
-            throw new NotImplementedException();
+            return $"Encendiendo luz de disponible y deteniendose...";
         }
     }
 }

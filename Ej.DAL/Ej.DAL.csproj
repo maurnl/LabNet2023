@@ -41,10 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Omnibus.cs" />
+    <Compile Include="Abstracciones\ITransportesRepository.cs" />
+    <Compile Include="Modelo\ETipoTransporte.cs" />
+    <Compile Include="Modelo\Omnibus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Taxi.cs" />
-    <Compile Include="TransportePublico.cs" />
+    <Compile Include="Modelo\Taxi.cs" />
+    <Compile Include="Modelo\TransportePublico.cs" />
+    <Compile Include="RepoTransportesEnMemoria.cs" />
+    <Compile Include="TransportesFactory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

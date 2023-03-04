@@ -8,12 +8,14 @@ namespace Ej.DAL.Model
 {
     public abstract class TransportePublico
     {
+        public int Id { get; set; }
+        public int CantidadPasajeros { get; private set; }
+
         public TransportePublico(int cantidadPasajeros)
         {
             CantidadPasajeros = cantidadPasajeros;
         }
 
-        public int CantidadPasajeros { get; private set; }
 
         public abstract string Avanzar();
         public abstract string Deneterse();

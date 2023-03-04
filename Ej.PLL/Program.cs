@@ -1,4 +1,6 @@
-﻿using Ej.PLL.Forms;
+﻿using Ej.BLL.Servicios;
+using Ej.DAL;
+using Ej.PLL.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +19,9 @@ namespace Ej.PLL
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmPrincipal());
+            var repo = new RepoTransportesEnMemoria();
+            var formPrincipal = new FrmPrincipal(new TransportesService(repo));
+            Application.Run(formPrincipal);
         }
     }
 }

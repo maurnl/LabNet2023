@@ -14,12 +14,12 @@ namespace Ej.DAL.Model
 
         public override string Avanzar()
         {
-            throw new NotImplementedException();
+            return $"Cerrando las puertas y avanzando...";
         }
 
         public override string Deneterse()
         {
-            throw new NotImplementedException();
+            return $"Deteniendose y abriendo puertas...";
         }
     }
 }

@@ -28,31 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lstOmnibus = new System.Windows.Forms.ListBox();
-            this.lstTaxis = new System.Windows.Forms.ListBox();
             this.btnAvanzar = new System.Windows.Forms.Button();
             this.btnCrear = new System.Windows.Forms.Button();
             this.btnDetener = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.dgvTransportes = new System.Windows.Forms.DataGridView();
+            this.lblPlaceholder = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransportes)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lstOmnibus
-            // 
-            this.lstOmnibus.FormattingEnabled = true;
-            this.lstOmnibus.Location = new System.Drawing.Point(12, 67);
-            this.lstOmnibus.Name = "lstOmnibus";
-            this.lstOmnibus.Size = new System.Drawing.Size(188, 394);
-            this.lstOmnibus.TabIndex = 0;
-            // 
-            // lstTaxis
-            // 
-            this.lstTaxis.FormattingEnabled = true;
-            this.lstTaxis.Location = new System.Drawing.Point(250, 67);
-            this.lstTaxis.Name = "lstTaxis";
-            this.lstTaxis.Size = new System.Drawing.Size(188, 394);
-            this.lstTaxis.TabIndex = 1;
             // 
             // btnAvanzar
             // 
@@ -62,6 +45,7 @@
             this.btnAvanzar.TabIndex = 2;
             this.btnAvanzar.Text = "Avanzar...";
             this.btnAvanzar.UseVisualStyleBackColor = true;
+            this.btnAvanzar.Click += new System.EventHandler(this.btnAvanzar_Click);
             // 
             // btnCrear
             // 
@@ -71,6 +55,7 @@
             this.btnCrear.TabIndex = 3;
             this.btnCrear.Text = "Nuevo transporte...";
             this.btnCrear.UseVisualStyleBackColor = true;
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
             // 
             // btnDetener
             // 
@@ -80,6 +65,7 @@
             this.btnDetener.TabIndex = 4;
             this.btnDetener.Text = "Detenerse...";
             this.btnDetener.UseVisualStyleBackColor = true;
+            this.btnDetener.Click += new System.EventHandler(this.btnDetener_Click);
             // 
             // label1
             // 
@@ -90,54 +76,50 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "label1";
             // 
-            // label2
+            // dgvTransportes
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(87, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "label2";
+            this.dgvTransportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTransportes.Location = new System.Drawing.Point(12, 38);
+            this.dgvTransportes.Name = "dgvTransportes";
+            this.dgvTransportes.Size = new System.Drawing.Size(426, 432);
+            this.dgvTransportes.TabIndex = 6;
             // 
-            // label3
+            // lblPlaceholder
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(325, 48);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "label3";
+            this.lblPlaceholder.AutoSize = true;
+            this.lblPlaceholder.Font = new System.Drawing.Font("Microsoft Sans Serif", 23.25F);
+            this.lblPlaceholder.Location = new System.Drawing.Point(22, 234);
+            this.lblPlaceholder.Name = "lblPlaceholder";
+            this.lblPlaceholder.Size = new System.Drawing.Size(407, 35);
+            this.lblPlaceholder.TabIndex = 7;
+            this.lblPlaceholder.Text = "Sin transportes en sistema...";
             // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(450, 549);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblPlaceholder);
+            this.Controls.Add(this.dgvTransportes);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDetener);
             this.Controls.Add(this.btnCrear);
             this.Controls.Add(this.btnAvanzar);
-            this.Controls.Add(this.lstTaxis);
-            this.Controls.Add(this.lstOmnibus);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmPrincipal";
             this.Text = "FrmPrincipal";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransportes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox lstOmnibus;
-        private System.Windows.Forms.ListBox lstTaxis;
         private System.Windows.Forms.Button btnAvanzar;
         private System.Windows.Forms.Button btnCrear;
         private System.Windows.Forms.Button btnDetener;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView dgvTransportes;
+        private System.Windows.Forms.Label lblPlaceholder;
     }
 }

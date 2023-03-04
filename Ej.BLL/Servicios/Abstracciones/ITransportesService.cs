@@ -10,6 +10,9 @@ namespace Ej.DAL.Services.Abstractions
 {
     public interface ITransportesService
     {
-        TransportePublico CrearTransporte(TransporteCrearDto transporte);
+        void CrearTransporte(TransporteCrearDto transporte);
+        string AvanzarTransporte(int idTransporte);
+        string DetenerTransporte(int idTransporte);
+        List<TransporteLecturaDto> ObtenerTransportes();
     }
 }

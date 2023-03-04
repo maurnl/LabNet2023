@@ -8,6 +8,7 @@ namespace Ej.BLL.Dtos
 {
     public class TransporteLecturaDto
     {
+        public int Id { get; set; }
         public string Tipo { get; set; }
         public int CantidadPasajeros { get; set; }
     }

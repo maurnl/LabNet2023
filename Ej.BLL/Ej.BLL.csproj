@@ -41,9 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dtos\TransporteCrearDto.cs" />
+    <Compile Include="Dtos\TransporteLecturaDto.cs" />
     <Compile Include="Servicios\Abstracciones\ITransportesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicios\TransportesService.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Ej.DAL\Ej.DAL.csproj">
+      <Project>{1F8009C0-4252-4C75-9F4D-97682271F4F0}</Project>
+      <Name>Ej.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

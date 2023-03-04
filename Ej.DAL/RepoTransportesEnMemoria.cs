@@ -10,21 +10,24 @@ namespace Ej.DAL
 {
     public class RepoTransportesEnMemoria : ITransportesRepository
     {
-        private static List<TransportePublico> _transportes;
+        private static int s_id;
+        private static readonly List<TransportePublico> s_transportes;
 
         static RepoTransportesEnMemoria()
         {
-            _transportes = new List<TransportePublico>();
+            s_transportes = new List<TransportePublico>();
+            s_id = 1;
         }
 
         public void Agregar(TransportePublico transporte)
         {
-            _transportes.Add(transporte);
+            transporte.Id = s_id++;
+            s_transportes.Add(transporte);
         }
 
         public List<TransportePublico> ObtenerTodos()
         {
-            return _transportes;
+            return s_transportes;
         }
     }
 }
