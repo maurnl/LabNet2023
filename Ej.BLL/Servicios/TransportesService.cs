@@ -14,10 +14,12 @@ namespace Ej.BLL.Servicios
     public class TransportesService : ITransportesService
     {
         private readonly ITransportesRepository _transportesRepo;
+
         public TransportesService(ITransportesRepository transportesRepo)
         {
             _transportesRepo = transportesRepo;
         }
+
         public void CrearTransporte(TransporteCrearDto transporte)
         {
             var transporteMapeado = new TransportesFactory().CrearTransporte(transporte.Tipo, transporte.CantidadPasajeros);
@@ -26,14 +28,14 @@ namespace Ej.BLL.Servicios
 
         public string AvanzarTransporte(int idTransporte)
         {
-            var transporte = _transportesRepo.ObtenerTodos().FirstOrDefault(t => t.Id == idTransporte);
+            var transporte = _transportesRepo.ObtenerPorId(idTransporte);
             return transporte.Avanzar();
         }
 
 
         public string DetenerTransporte(int idTransporte)
         {
-            var transporte = _transportesRepo.ObtenerTodos().FirstOrDefault(t => t.Id == idTransporte);
+            var transporte = _transportesRepo.ObtenerPorId(idTransporte);
             return transporte.Deneterse();
         }
 

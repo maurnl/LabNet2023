@@ -29,5 +29,10 @@ namespace Ej.DAL
         {
             return s_transportes;
         }
+
+        public TransportePublico ObtenerPorId(int id)
+        {
+            return s_transportes.FirstOrDefault(t => t.Id == id);
+        }
     }
 }

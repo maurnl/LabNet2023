@@ -11,5 +11,6 @@ namespace Ej.DAL.Abstracciones
     {
         void Agregar(TransportePublico transporte);
         List<TransportePublico> ObtenerTodos();
+        TransportePublico ObtenerPorId(int id);
     }
 }
