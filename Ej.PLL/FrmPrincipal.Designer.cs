@@ -107,6 +107,7 @@
             this.Controls.Add(this.btnCrear);
             this.Controls.Add(this.btnAvanzar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FrmPrincipal";
             this.Text = "FrmPrincipal";
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransportes)).EndInit();
