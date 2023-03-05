@@ -1,5 +1,6 @@
 ﻿using Ej.BLL.Dtos;
 using Ej.BLL.Servicios;
+using Ej.BLL.Validaciones;
 using Ej.DAL.Services.Abstractions;
 using System;
 using System.Collections.Generic;
@@ -58,6 +59,12 @@ namespace Ej.PLL.Forms
                 }catch(FlotaLlenaException ex)
                 {
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }catch(TaxiLlenoException tllex)
+                {
+                    MessageBox.Show(tllex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }catch(OmnibusLlenoException ollex)
+                {
+                    MessageBox.Show(ollex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 btnAvanzar.Enabled = true;
                 btnDetener.Enabled = true;
@@ -67,6 +74,10 @@ namespace Ej.PLL.Forms
 
         private void btnDetener_Click(object sender, EventArgs e)
         {
+            if (dgvTransportes.SelectedRows.Count == 0)
+            {
+                return;
+            }
             var transporteSeleccionado = (TransporteLecturaDto)dgvTransportes.SelectedRows[0].DataBoundItem;
             if(transporteSeleccionado == null )
             {

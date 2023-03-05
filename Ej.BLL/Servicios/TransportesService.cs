@@ -1,4 +1,5 @@
 ﻿using Ej.BLL.Dtos;
+using Ej.BLL.Validaciones;
 using Ej.DAL;
 using Ej.DAL.Abstracciones;
 using Ej.DAL.Model;
@@ -26,6 +27,7 @@ namespace Ej.BLL.Servicios
             {
                 throw new FlotaLlenaException("No hay mas espacio para transportes! (MAX. 10)");
             }
+            ValidadorTransportes.ValidarTransporte(transporte);
             var transporteMapeado = new TransportesFactory().CrearTransporte(transporte.Tipo, transporte.CantidadPasajeros);
             _transportesRepo.Agregar(transporteMapeado);
         }

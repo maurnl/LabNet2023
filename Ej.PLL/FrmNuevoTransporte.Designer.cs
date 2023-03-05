@@ -66,6 +66,11 @@
             // nudCantidadPasajeros
             // 
             this.nudCantidadPasajeros.Location = new System.Drawing.Point(74, 142);
+            this.nudCantidadPasajeros.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.nudCantidadPasajeros.Name = "nudCantidadPasajeros";
             this.nudCantidadPasajeros.Size = new System.Drawing.Size(169, 20);
             this.nudCantidadPasajeros.TabIndex = 3;
@@ -91,6 +96,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FrmNuevoTransporte";
             this.Text = "FrmNuevoTransporte";
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadPasajeros)).EndInit();
