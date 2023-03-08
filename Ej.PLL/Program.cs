@@ -1,6 +1,4 @@
-﻿using Ej.BLL.Servicios;
-using Ej.DAL;
-using Ej.PLL.Forms;
+﻿using Ej.BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,10 +17,9 @@ namespace Ej.PLL
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var repo = new RepoTransportesEnMemoria();
-            var servicioTransportes = new TransportesService(repo);
-            var formPrincipal = new FrmPrincipal(servicioTransportes);
-            Application.Run(formPrincipal);
+            var calcu = new Calculadora();
+            var form = new FrmPrincipal(calcu);
+            Application.Run(form);
         }
     }
 }

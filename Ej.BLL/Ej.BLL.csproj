@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CE925374-7F78-40FF-84DE-A9D6B4A8077A}</ProjectGuid>
+    <ProjectGuid>{86E59728-8746-42D5-9093-55DFA49CF475}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Ej.BLL</RootNamespace>
@@ -41,21 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dtos\TransporteCrearDto.cs" />
-    <Compile Include="Dtos\TransporteLecturaDto.cs" />
-    <Compile Include="Servicios\Abstracciones\ITransportesService.cs" />
+    <Compile Include="Calculadora.cs" />
+    <Compile Include="Excepciones\PresionasteBotonRojoException.cs" />
+    <Compile Include="Logic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Excepciones\FlotaLlenaException.cs" />
-    <Compile Include="Servicios\TransportesService.cs" />
-    <Compile Include="Excepciones\TaxiLlenoException.cs" />
-    <Compile Include="Excepciones\OmnibusLlenoException.cs" />
-    <Compile Include="Validaciones\ValidadorTransportes.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Ej.DAL\Ej.DAL.csproj">
-      <Project>{1F8009C0-4252-4C75-9F4D-97682271F4F0}</Project>
-      <Name>Ej.DAL</Name>
-    </ProjectReference>
+    <Compile Include="ExtensionesString.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

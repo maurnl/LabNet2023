@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmNuevoTransporte.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmNuevoTransporte.Designer.cs">
-      <DependentUpon>FrmNuevoTransporte.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,9 +54,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmNuevoTransporte.resx">
-      <DependentUpon>FrmNuevoTransporte.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,12 +81,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ej.BLL\Ej.BLL.csproj">
-      <Project>{CE925374-7F78-40FF-84DE-A9D6B4A8077A}</Project>
+      <Project>{86E59728-8746-42D5-9093-55DFA49CF475}</Project>
       <Name>Ej.BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ej.DAL\Ej.DAL.csproj">
-      <Project>{1F8009C0-4252-4C75-9F4D-97682271F4F0}</Project>
-      <Name>Ej.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

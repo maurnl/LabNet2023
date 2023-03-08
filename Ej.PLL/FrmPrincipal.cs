@@ -1,7 +1,5 @@
-﻿using Ej.BLL.Dtos;
-using Ej.BLL.Servicios;
-using Ej.BLL.Validaciones;
-using Ej.DAL.Services.Abstractions;
+﻿using Ej.BLL;
+using Ej.BLL.Excepciones;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,95 +10,70 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Ej.PLL.Forms
+namespace Ej.PLL
 {
     public partial class FrmPrincipal : Form
     {
-        private BindingSource _fuenteDatos;
-        private readonly ITransportesService _transportesService;
-
+        private readonly Calculadora _calculadora;
         public FrmPrincipal()
         {
             InitializeComponent();
-            _fuenteDatos = new BindingSource();
-            btnAvanzar.Enabled = false;
-            btnDetener.Enabled = false; 
+            this.lblError.Text = string.Empty;
+            this.lblResultado.Text = string.Empty;
+            this.lblErrorExcepciones.Text = string.Empty;
+            this.Text = "Practica 2";
         }
 
-        public FrmPrincipal(ITransportesService transportesService) : this()
+        public FrmPrincipal(Calculadora calcu) : this()
         {
-            _transportesService = transportesService;
-            ActualizarListado();
+            _calculadora = calcu;
         }
 
-        private void btnAvanzar_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            if(dgvTransportes.SelectedRows.Count == 0)
+            try
             {
-                return;
-            }
-            var transporteSeleccionado = (TransporteLecturaDto)dgvTransportes.SelectedRows[0].DataBoundItem;
-            if (transporteSeleccionado == null)
-            {
-                return;
-            }
-            string resultado = _transportesService.AvanzarTransporte(transporteSeleccionado.Id);
-            MessageBox.Show(resultado, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
+                string dividendo = this.txtDividendo.Text;
+                string divisor = this.txtDivisor.Text;
 
-        private void btnCrear_Click(object sender, EventArgs e)
-        {
-            var formDialogo = new FrmNuevoTransporte();
-            if(formDialogo.ShowDialog() == DialogResult.OK)
+                dividendo.LanzarSiEsCadenaVaciaONula();
+                dividendo.LanzarSiNoEsTodaNumerica();
+
+                int resultado = _calculadora.Dividir(int.Parse(dividendo), int.Parse(divisor));
+                this.lblResultado.Text = $"El resultado es: {resultado}";
+                this.lblError.Text = string.Empty;
+            }catch(DivideByZeroException ex)
             {
-                try
-                {
-                    _transportesService.CrearTransporte(formDialogo.NuevoTransporte);
-                }catch(FlotaLlenaException ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }catch(TaxiLlenoException tllex)
-                {
-                    MessageBox.Show(tllex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }catch(OmnibusLlenoException ollex)
-                {
-                    MessageBox.Show(ollex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                btnAvanzar.Enabled = true;
-                btnDetener.Enabled = true;
-                ActualizarListado();
+                this.lblError.Text = $"Solo Messi mi capitan puede dividir por cero! {ex.Message}";
+            }catch(ArgumentException ex)
+            {
+                this.lblError.Text = ex.Message;
+            }catch(Exception ex)
+            {
+                this.lblError.Text = $"Error inesperado: {ex.Message}";
             }
         }
 
-        private void btnDetener_Click(object sender, EventArgs e)
+        private void btnBotonRojo_Click(object sender, EventArgs e)
         {
-            if (dgvTransportes.SelectedRows.Count == 0)
+            try
             {
-                return;
-            }
-            var transporteSeleccionado = (TransporteLecturaDto)dgvTransportes.SelectedRows[0].DataBoundItem;
-            if(transporteSeleccionado == null )
+                Logic.LanzarExcepcionPersonalizada();
+            }catch(PresionasteBotonRojoException ex )
             {
-                return;
+                this.lblErrorExcepciones.Text = $"Mensaje: {ex.Message}. Tipo: {ex.GetType()}"; 
             }
-            string resultado = _transportesService.DetenerTransporte(transporteSeleccionado.Id);
-            MessageBox.Show(resultado, "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void ActualizarListado()
+        private void btnExcepcion_Click(object sender, EventArgs e)
         {
-            var transportes = _transportesService.ObtenerTransportes();
-            if(transportes.Count > 0)
+            try
             {
-                dgvTransportes.Visible = true;
-                lblPlaceholder.Visible = false;
-                _fuenteDatos.DataSource = transportes;
-                _fuenteDatos.ResetBindings(false);
-                dgvTransportes.DataSource = transportes;
+                Logic.LanzarExcepcion();
             }
-            else
+            catch (InvalidOperationException ex)
             {
-                dgvTransportes.Visible = false;
+                this.lblErrorExcepciones.Text = $"Mensaje: {ex.Message}. Tipo: {ex.GetType()}";
             }
         }
     }
