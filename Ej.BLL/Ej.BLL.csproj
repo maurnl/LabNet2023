@@ -45,7 +45,7 @@
     <Compile Include="Excepciones\PresionasteBotonRojoException.cs" />
     <Compile Include="Logic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ExtensionesString.cs" />
+    <Compile Include="Extensiones\ExtensionesString.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

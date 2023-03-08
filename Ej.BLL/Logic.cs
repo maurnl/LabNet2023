@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Ej.BLL
 {
-    public static class Logic
+    public class Logic
     {
-        public static void LanzarExcepcion()
+        public void LanzarExcepcion()
         {
             throw new InvalidOperationException();
         }
 
-        public static void LanzarExcepcionPersonalizada()
+        public void LanzarExcepcionPersonalizada()
         {
             throw new PresionasteBotonRojoException();
         }

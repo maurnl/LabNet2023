@@ -58,7 +58,7 @@ namespace Ej.PLL
         {
             try
             {
-                Logic.LanzarExcepcionPersonalizada();
+                new Logic().LanzarExcepcionPersonalizada();
             }catch(PresionasteBotonRojoException ex )
             {
                 this.lblErrorExcepciones.Text = $"Mensaje: {ex.Message}. Tipo: {ex.GetType()}"; 
@@ -69,7 +69,7 @@ namespace Ej.PLL
         {
             try
             {
-                Logic.LanzarExcepcion();
+                new Logic().LanzarExcepcion();
             }
             catch (InvalidOperationException ex)
             {
