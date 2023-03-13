@@ -1,11 +1,10 @@
-﻿using Ej.BLL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Ej.PLL
+namespace Northwind.UI
 {
     internal static class Program
     {
@@ -17,9 +16,7 @@ namespace Ej.PLL
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var calcu = new Calculadora();
-            var form = new FrmPrincipal(calcu);
-            Application.Run(form);
+            Application.Run(new Form1());
         }
     }
 }

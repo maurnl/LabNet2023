@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("Ej.BLL")]
+[assembly: AssemblyTitle("Northwind.Entities")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Ej.BLL")]
+[assembly: AssemblyProduct("Northwind.Entities")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
-[assembly: Guid("86e59728-8746-42d5-9093-55dfa49cf475")]
+[assembly: Guid("94837d70-6fda-4f51-ad7c-4cdc362ed3ef")]
 
 // La información de versión de un ensamblado consta de los cuatro valores siguientes:
 //

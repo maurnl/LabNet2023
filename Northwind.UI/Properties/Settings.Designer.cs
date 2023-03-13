@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Ej.PLL.Properties
+namespace Northwind.UI.Properties
 {
 
 
