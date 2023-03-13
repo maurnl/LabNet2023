@@ -1,4 +1,4 @@
-namespace Northwind.Data
+namespace Northwind.Entities
 {
     using System;
     using System.Collections.Generic;
