@@ -80,7 +80,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ej.BLL\Ej.BLL.csproj">
+    <ProjectReference Include="..\Ej.BLL\Practica2.BLL.csproj">
       <Project>{86E59728-8746-42D5-9093-55DFA49CF475}</Project>
       <Name>Ej.BLL</Name>
     </ProjectReference>
