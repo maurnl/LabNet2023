@@ -14,22 +14,24 @@ namespace Northwind.Data
             _nwContext = new NorthwindContext();
         }
 
+        public GenericRepository(NorthwindContext nwContext)
+        {
+            _nwContext = nwContext;
+        }
+
         public void Add(T entity)
         {
             _nwContext.Set<T>().Add(entity);
-            _nwContext.SaveChanges();
         }
 
         public void Update(T entity)
         {
             _nwContext.Entry(entity).State = EntityState.Modified;
-            _nwContext.SaveChanges();
         }
 
         public void Delete(T entity)
         {
             _nwContext.Set<T>().Remove(entity);
-            _nwContext.SaveChanges();
         }
 
         public T FindById(int id)
