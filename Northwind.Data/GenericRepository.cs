@@ -1,10 +1,7 @@
 ﻿using Northwind.Data.Abstractions;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Northwind.Data
 {
@@ -35,9 +32,25 @@ namespace Northwind.Data
             _nwContext.SaveChanges();
         }
 
-        public IQueryable<T> GetAll()
+        public T FindById(int id)
         {
-            return _nwContext.Set<T>().AsQueryable() ?? Enumerable.Empty<T>().AsQueryable();
+            return _nwContext.Set<T>().Find(id);
+        }
+
+        public IQueryable<T> GetAll(string includeProperties = "")
+        {
+            IQueryable<T> query = _nwContext.Set<T>();
+            foreach (var includeProperty in includeProperties.Split
+            (new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                query = query.Include(includeProperty);
+            }
+            return query.AsQueryable() ?? Enumerable.Empty<T>().AsQueryable();
+        }
+
+        public void SaveChanges()
+        {
+            _nwContext.SaveChanges();
         }
     }
 }
