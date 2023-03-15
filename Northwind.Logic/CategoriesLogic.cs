@@ -19,6 +19,11 @@ namespace Northwind.Logic
             _categoriesRepo = new GenericRepository<Categories>();
         }
 
+        public CategoriesLogic(IGenericRepository<Categories> categoriesRepo)
+        {
+            _categoriesRepo = categoriesRepo;
+        }
+
         public IEnumerable<Categories> GetAll()
         {
             return _categoriesRepo.GetAll().ToList();
@@ -52,9 +57,10 @@ namespace Northwind.Logic
                 throw new ArgumentException($"No se pudo encontrar la region id {category.CategoryID}", nameof(categoryToUpdate));
             }
 
+            categoryToUpdate.CategoryName = category.CategoryName;
+
             categoryToUpdate.Description = category.Description;
             _categoriesRepo.SaveChanges();
-
         }
     }
 }
