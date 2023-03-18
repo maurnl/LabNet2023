@@ -10,8 +10,10 @@
 <body>
     <div>
         <h1>Juego adivinar el numero!</h1>
+        <p>Para jugar ingresa un numero y presiona el boton de intentar. Se te indicaran pistas para que llegues al numero secreto! Intenta
+           ganar en menos de 20 rondas o perderas!</p>
     </div>
-    <div>
+    <div id="contenedor">
         <div>
             <h3>Puntaje: <span id="score">0</span></h3>
         </div>
@@ -19,6 +21,9 @@
             <label for="number">Ingrese numero: </label>
             <input type="text" name="number" id="number">
             <button type="submit" id="guessBtn">Intentar</button>
+        </div>
+        <div>
+            <h4 id="estado">Ingresa un numero...</h4>
         </div>
     </div>
 </body>

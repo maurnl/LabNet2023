@@ -1,3 +1,5 @@
+import { GameState } from "./GameStates.js"
+
 export class GameLogic {
     #gameOver;
     #playerWon;
@@ -12,18 +14,22 @@ export class GameLogic {
     }
 
     guessNumber(number) {
-        let status = "";
+        let status;
         if(number == this.#secretNumber) {
-            status = "Ganaste!!";
+            status = GameState.YouWon;
             this.#gameOver = true;
             this.#playerWon = true;
         } else {
             if(number > this.#secretNumber) {
-                status = "Muy alto!!";
+                status = GameState.TooHigh;
             } else {
-                status = "Muy bajo!!";
+                status = GameState.TooLow;
             }
             this.#score--;
+        }
+
+        if(0 >= this.#score) {
+            status = GameState.YouLose;
         }
         return status;
     }
