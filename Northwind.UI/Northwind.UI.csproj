@@ -56,12 +56,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmAbmCategoria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmAbmCategoria.Designer.cs">
-      <DependentUpon>FrmAbmCategoria.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmContenedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,12 +67,6 @@
     </Compile>
     <Compile Include="FrmListadoBase.Designer.cs">
       <DependentUpon>FrmListadoBase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmListadoCategories.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmListadoCategories.Designer.cs">
-      <DependentUpon>FrmListadoCategories.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmListadoCustomers.cs">
       <SubType>Form</SubType>
@@ -92,43 +80,19 @@
     <Compile Include="FrmListadoProducts.Designer.cs">
       <DependentUpon>FrmListadoProducts.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmListadoRegion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmListadoRegion.Designer.cs">
-      <DependentUpon>FrmListadoRegion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmListadoSuppliers.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmListadoSuppliers.Designer.cs">
-      <DependentUpon>FrmListadoSuppliers.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmAbmCategoria.resx">
-      <DependentUpon>FrmAbmCategoria.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmContenedor.resx">
       <DependentUpon>FrmContenedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoBase.resx">
       <DependentUpon>FrmListadoBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmListadoCategories.resx">
-      <DependentUpon>FrmListadoCategories.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoCustomers.resx">
       <DependentUpon>FrmListadoCustomers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoProducts.resx">
       <DependentUpon>FrmListadoProducts.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmListadoRegion.resx">
-      <DependentUpon>FrmListadoRegion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmListadoSuppliers.resx">
-      <DependentUpon>FrmListadoSuppliers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -1,4 +1,5 @@
-﻿using Northwind.Logic;
+﻿using Northwind.Entities;
+using Northwind.Logic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,8 @@ namespace Northwind.UI
             this._filtros.Add("Ordenados por nombre ascendente", ListarProductosOrdenadosPorNombre);
             this._filtros.Add("Ordenados por stock descendente", ListarProductosOrdenadosPorStockDescendente);
             this._filtros.Add("Primer elemento", ListarPrimerElementoDeProductos);
+            this._filtros.Add("Primero o nulo con ID 789    ", ListarPrimerElementoDeProductos);
+            this._filtros.Add("Categorias de los productos", ListarCategoriasDeLosProductos);
             ActualizarFuenteCombobox();
         }
 
@@ -70,6 +73,42 @@ namespace Northwind.UI
         {
             var logic = new ProductsLogic();
             _bindingSource.DataSource = logic.GetAll().FirstOrDefault();
+        }
+
+        public void PrimeroONuloConId789()
+        {
+            var logic = new ProductsLogic();
+
+            var elemento = (from product in logic.GetAll()
+                            where product.ProductID == 789
+                            select product).FirstOrDefault();
+
+            if(elemento == null)
+            {
+                MessageBox.Show("El elemento fue nulo", "Advertencia", MessageBoxButtons.OK);
+                return;
+            }
+
+            _bindingSource.DataSource = elemento;
+        }
+
+        public void ListarCategoriasDeLosProductos()
+        {
+            var productsLogic = new ProductsLogic();
+            var categoriesLogic = new CategoriesLogic();
+
+            var query = productsLogic.GetAll().Join(categoriesLogic.GetAll(),
+                producto => producto.CategoryID.Value,
+                categoria => categoria.CategoryID,
+                (producto, categoria) => new
+                {
+                    producto.ProductID,
+                    producto.ProductName,
+                    categoria.CategoryName,
+                    categoria.Description
+                });
+
+            _bindingSource.DataSource = query.ToList();
         }
     }
 }

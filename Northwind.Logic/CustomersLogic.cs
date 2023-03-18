@@ -21,7 +21,7 @@ namespace Northwind.Logic
 
         public IEnumerable<Customers> GetAll()
         {
-            return _customersRepo.GetAll().ToList();
+            return _customersRepo.GetAll(includeProperties: "Orders").ToList();
         }
     }
 }

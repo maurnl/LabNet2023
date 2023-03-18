@@ -14,44 +14,21 @@ namespace Northwind.UI
     {
         private FrmListadoBase _formActivo;
         private FrmListadoProducts _formProducts;
-        private FrmListadoRegion _formRegions;
-        private FrmListadoCategories _formCategories;
-        private FrmListadoSuppliers _formSuppliers;
         private FrmListadoCustomers _formCustomers;
 
         public FrmContenedor()
         {
             InitializeComponent();
-            this.Text = "Northwind - Practica 3";
+            this.Text = "Northwind - Practica 4 - LINQ";
             _formProducts = new FrmListadoProducts();
-            _formCategories = new FrmListadoCategories();
-            _formSuppliers = new FrmListadoSuppliers();
-            _formRegions = new FrmListadoRegion();
             _formCustomers = new FrmListadoCustomers();
             _formProducts.MdiParent = this;
-            _formRegions.MdiParent = this;
-            _formCategories.MdiParent = this;
-            _formSuppliers.MdiParent = this;
             _formCustomers.MdiParent = this;
         }
 
         private void verToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MostrarForm("products");
-        }
-        private void verToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            MostrarForm("regions");
-        }
-
-        private void verToolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            MostrarForm("categories");
-        }
-        private void verToolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-            MostrarForm("suppliers");
-
         }
 
         private void verTodosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -66,15 +43,6 @@ namespace Northwind.UI
             {
                 case "viajes":
                     formAMostrar = _formProducts;
-                    break;
-                case "regions":
-                    formAMostrar = _formRegions;
-                    break;
-                case "categories":
-                    formAMostrar = _formCategories;
-                    break;
-                case "suppliers":
-                    formAMostrar = _formSuppliers;
                     break;
                 case "customers":
                     formAMostrar = _formCustomers;

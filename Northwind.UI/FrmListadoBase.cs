@@ -27,6 +27,7 @@ namespace Northwind.UI
             _filtros = new Dictionary<string, Action>();
             this.cboListados.DataSource = _filtros.Keys.ToList();
             this.cboListados.DropDownStyle = ComboBoxStyle.DropDownList;
+            _bindingSource.DataSourceChanged += (o, e) => PintarFilas();
         }
 
         protected virtual void PintarFilas()

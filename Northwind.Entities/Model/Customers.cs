@@ -7,13 +7,6 @@ namespace Northwind.Entities
 
     public partial class Customers
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customers()
-        {
-            Orders = new HashSet<Orders>();
-            CustomerDemographics = new HashSet<CustomerDemographics>();
-        }
-
         [Key]
         [StringLength(5)]
         public string CustomerID { get; set; }
@@ -51,8 +44,5 @@ namespace Northwind.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orders> Orders { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CustomerDemographics> CustomerDemographics { get; set; }
     }
 }
