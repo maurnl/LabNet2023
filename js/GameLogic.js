@@ -1,16 +1,19 @@
 import { GameState } from "./GameStates.js"
 
 export class GameLogic {
+    // top bound number
+    static MAX_NUMBER = 20;
     #gameOver;
     #playerWon;
     #score;
     #secretNumber;
+    #currentHighscore = Number.MIN_VALUE;
 
     constructor() {
         this.#gameOver = false;
         this.#playerWon = false;
         this.#score = 20;
-        this.#secretNumber = Math.floor(Math.random() * 100);
+        this.#secretNumber = Math.floor(Math.random() * GameLogic.MAX_NUMBER);
     }
 
     guessNumber(number) {
@@ -19,6 +22,9 @@ export class GameLogic {
             status = GameState.YouWon;
             this.#gameOver = true;
             this.#playerWon = true;
+            if(number > this.#currentHighscore) {
+                this.#currentHighscore = this.#score;
+            }
         } else {
             if(number > this.#secretNumber) {
                 status = GameState.TooHigh;
@@ -44,5 +50,9 @@ export class GameLogic {
 
     getPlayerWon() { 
         return this.#playerWon;
+    }
+
+    getHighScore() {
+        return this.#currentHighscore;
     }
 }

@@ -15,8 +15,11 @@ function handleInputNumber() {
     
     error.textContent = "";
     error.style.display = "none";
-    if(!inputIsOnlyNumbers(input)) {
-        error.textContent = "Porfavor, ingrese solo numeros!";
+
+    let isValidInput = inputIsOnlyNumbers(input) && inputIsInsideBounds(input);
+    
+    if(!isValidInput) {
+        error.textContent = `Porfavor, ingrese un número entre 1 y ${GameLogic.MAX_NUMBER}!`;
         error.style.display = "block";
         return;
     }
@@ -37,6 +40,7 @@ function handleGameState(gameState) {
             contenedor.style.backgroundColor = "lightgreen";
             estado.textContent = "GANASTE!!";
             botonReiniciar.style.display = "inline-block";
+            document.getElementById("maxScore").textContent = gameLogic.getHighScore();
             botonIntentar.disabled = true;
             break;
         case GameState.TooHigh:
@@ -62,6 +66,10 @@ function updateScore() {
 
 function inputIsOnlyNumbers(input) {
     return /^\d+$/.test(input);
+}
+
+function inputIsInsideBounds(input) {
+    return input >= 0 && GameLogic.MAX_NUMBER >= input;
 }
 
 function handleRestartGame() {
