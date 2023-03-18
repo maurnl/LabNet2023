@@ -12,10 +12,13 @@ namespace Northwind.UI
 {
     public partial class FrmContenedor : Form
     {
+        private FrmListadoBase _formActivo;
         private FrmListadoProducts _formProducts;
         private FrmListadoRegion _formRegions;
         private FrmListadoCategories _formCategories;
         private FrmListadoSuppliers _formSuppliers;
+        private FrmListadoCustomers _formCustomers;
+
         public FrmContenedor()
         {
             InitializeComponent();
@@ -24,10 +27,12 @@ namespace Northwind.UI
             _formCategories = new FrmListadoCategories();
             _formSuppliers = new FrmListadoSuppliers();
             _formRegions = new FrmListadoRegion();
+            _formCustomers = new FrmListadoCustomers();
             _formProducts.MdiParent = this;
             _formRegions.MdiParent = this;
             _formCategories.MdiParent = this;
             _formSuppliers.MdiParent = this;
+            _formCustomers.MdiParent = this;
         }
 
         private void verToolStripMenuItem_Click(object sender, EventArgs e)
@@ -49,6 +54,11 @@ namespace Northwind.UI
 
         }
 
+        private void verTodosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MostrarForm("customers");
+        }
+
         private void MostrarForm(string nombre)
         {
             FrmListadoBase formAMostrar;
@@ -66,10 +76,14 @@ namespace Northwind.UI
                 case "suppliers":
                     formAMostrar = _formSuppliers;
                     break;
+                case "customers":
+                    formAMostrar = _formCustomers;
+                    break;
                 default:
                     formAMostrar = _formProducts;
                     break;
             }
+            _formActivo = formAMostrar;
             formAMostrar.Show();
             formAMostrar.Activate();
             formAMostrar.ActualizarDatagrid();

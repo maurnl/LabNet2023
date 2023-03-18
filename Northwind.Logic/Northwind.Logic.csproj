@@ -47,6 +47,7 @@
     <Compile Include="Abstractions\IABMLogic.cs" />
     <Compile Include="Abstractions\IEnumAllLogic.cs" />
     <Compile Include="CategoriesLogic.cs" />
+    <Compile Include="CustomersLogic.cs" />
     <Compile Include="ProductsLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegionLogic.cs" />

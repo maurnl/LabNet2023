@@ -31,6 +31,8 @@
             this.dgvListado = new System.Windows.Forms.DataGridView();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
+            this.cboListados = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,11 +70,33 @@
             this.lblError.TabIndex = 2;
             this.lblError.Text = "error";
             // 
+            // cboListados
+            // 
+            this.cboListados.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboListados.FormattingEnabled = true;
+            this.cboListados.Location = new System.Drawing.Point(117, 9);
+            this.cboListados.Name = "cboListados";
+            this.cboListados.Size = new System.Drawing.Size(253, 21);
+            this.cboListados.TabIndex = 3;
+            this.cboListados.SelectionChangeCommitted += new System.EventHandler(this.comboBox1_SelectionChangeCommitted);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F);
+            this.label1.Location = new System.Drawing.Point(12, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(105, 29);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Mostrar:";
+            // 
             // FrmListadoBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1084, 561);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cboListados);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.dgvListado);
@@ -90,5 +114,7 @@
         protected System.Windows.Forms.DataGridView dgvListado;
         protected System.Windows.Forms.Label lblTitulo;
         protected System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.ComboBox cboListados;
+        protected System.Windows.Forms.Label label1;
     }
 }
