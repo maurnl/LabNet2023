@@ -5,14 +5,19 @@ let gameLogic = new GameLogic();
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("guessBtn").addEventListener("click", handleInputNumber);
+    document.getElementById("reiniciar").addEventListener("click", handleRestartGame);
     updateScore();
 });
 
 function handleInputNumber() {
-    let input = document.getElementById("number").value;
-
-    if(inputIsOnlyNumbers(input)) {
-        alert("Porfavor, ingrese solo numeros!");
+    const input = document.getElementById("number").value;
+    const error = document.getElementById("error");
+    
+    error.textContent = "";
+    error.style.display = "none";
+    if(!inputIsOnlyNumbers(input)) {
+        error.textContent = "Porfavor, ingrese solo numeros!";
+        error.style.display = "block";
         return;
     }
 
@@ -22,13 +27,17 @@ function handleInputNumber() {
 }
 
 function handleGameState(gameState) {
-    let contenedor = document.getElementById("contenedor");
-    let estado = document.getElementById("estado");
+    const contenedor = document.getElementById("contenedor");
+    const estado = document.getElementById("estado");
+    const botonReiniciar = document.getElementById("reiniciar");
+    const botonIntentar = document.getElementById("guessBtn");
     let numIngresado = document.getElementById("number").value;
     switch(gameState) {
         case GameState.YouWon:
             contenedor.style.backgroundColor = "lightgreen";
             estado.textContent = "GANASTE!!";
+            botonReiniciar.style.display = "inline-block";
+            botonIntentar.disabled = true;
             break;
         case GameState.TooHigh:
             contenedor.style.backgroundColor = "lightyellow";
@@ -41,6 +50,8 @@ function handleGameState(gameState) {
         case GameState.YouLose:
             contenedor.style.backgroundColor = "lightred";
             estado.textContent = "Perdiste!! Reinicia para volver a intentar!!";
+            botonReiniciar.style.display = "inline-block";
+            botonIntentar.disabled = true;
             break;
     }
 }
@@ -50,5 +61,13 @@ function updateScore() {
 }
 
 function inputIsOnlyNumbers(input) {
-    return !/^\d+$/.test(input);
+    return /^\d+$/.test(input);
+}
+
+function handleRestartGame() {
+    gameLogic = new GameLogic();
+    document.getElementById("guessBtn").disabled = false;
+    document.getElementById("reiniciar").style.display = "none";
+    estado.textContent = "Ingresa un numero...";
+    updateScore();
 }
