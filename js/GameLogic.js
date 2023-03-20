@@ -22,9 +22,7 @@ export class GameLogic {
             status = GameState.YouWon;
             this.#gameOver = true;
             this.#playerWon = true;
-            if(number > this.#currentHighscore) {
-                this.#currentHighscore = this.#score;
-            }
+            this.#setHighScore();
         } else {
             if(number > this.#secretNumber) {
                 status = GameState.TooHigh;
@@ -38,6 +36,12 @@ export class GameLogic {
             status = GameState.YouLose;
         }
         return status;
+    }
+
+    #setHighScore() {
+        if(this.#score > this.#currentHighscore) {
+            this.#currentHighscore = this.#score;
+        }
     }
 
     getScore() {

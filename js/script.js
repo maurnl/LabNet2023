@@ -13,7 +13,6 @@ function handleInputNumber() {
     const input = document.getElementById("number").value;
     const error = document.getElementById("error");
     
-    error.textContent = "";
     error.style.display = "none";
 
     let isValidInput = inputIsOnlyNumbers(input) && inputIsInsideBounds(input);
@@ -69,7 +68,7 @@ function inputIsOnlyNumbers(input) {
 }
 
 function inputIsInsideBounds(input) {
-    return input >= 0 && GameLogic.MAX_NUMBER >= input;
+    return input > 0 && GameLogic.MAX_NUMBER >= input;
 }
 
 function handleRestartGame() {
